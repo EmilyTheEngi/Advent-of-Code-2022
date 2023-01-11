@@ -11,6 +11,12 @@ import java.io.FileReader;
 
 public class FileIn {
 
+    public static void elfs() {
+        System.out.println("The most any elf is carrying is: "+ biggestInFile());
+        System.out.println("The 2nd largest is: "+ ndLargest(2));
+        System.out.println("The 3rd largest is: "+ ndLargest(3));
+    }
+
     public static int biggestInFile() {
         int largest = 0, count = 0, currentNum = 0;
         //read file
@@ -55,4 +61,8 @@ public class FileIn {
         return largest;
     }
 
+
+    public static int ndLargest(int n) {
+        return 0;
+    }
 }
