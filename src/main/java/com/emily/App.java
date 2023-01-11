@@ -12,6 +12,6 @@ public class App
         //day 1
         FileIn.elves();
         //day 2
-        RPStourney.exeStratGuide();
+        RPStourney.fileInPointsOut();
     }
 }

@@ -23,7 +23,7 @@ public class FileIn {
         int largest = 0, count = 0, currentNum = 0;
         //read file
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/main/java/com/emily/input.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input.txt"));
             boolean prevNull = false;
             //sum each group of integers in the file and compare to largest
             while (true) {
@@ -71,7 +71,7 @@ public class FileIn {
         boolean prevNull = false;
 
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/main/java/com/emily/input.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input.txt"));
             
             //main loop
             while (true) {
