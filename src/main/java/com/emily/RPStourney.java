@@ -9,9 +9,9 @@ public class RPStourney {
     //Paper =   B,Y     = 2 Points
     //Scissors =C,Z     = 3 Points
 
-    //Losing            = 0 Points
-    //Draw              = 3 Points
-    //Winning           = 6 Points
+    //Losing    X       = 0 Points
+    //Draw      Y       = 3 Points
+    //Winning   Z       = 6 Points
 
     //truth table function
     public static int didIWin(char opponent, char you) {
@@ -26,6 +26,29 @@ public class RPStourney {
             return -1;
         }
     }
+    public static char needForResult(char opponent, char you) {
+        //I find what move you need to make to to get your desired outcome
+        if(you == 'Y') {//need to draw
+            return opponent;
+        } else if (you == 'Z') {//need to win
+            if (opponent == 'A') { //If opponent is Rock, Paper is needed to win
+                return 'Y';
+            } else if (opponent == 'B') { //If opponent is Paper, Scissors is needed to win
+                return 'Z';
+            } else { //If opponent is Scissors, Rock is needed to win
+                return 'X';
+            }
+        } else {//need to lose
+            if (opponent == 'A') { //If opponent is Rock, Scissors is needed to lose
+                return 'Z';
+            } else if (opponent == 'B') { //If opponent is Paper, Rock is needed to lose
+                return 'X';
+            } else { //If opponent is Scissors, Paper is needed to lose
+                return 'Y';
+            }
+        }
+    }
+
 
     //point calculator
     public static int pointCalc(int win, char move) {
@@ -82,5 +105,26 @@ public class RPStourney {
             System.out.println("Exception"+e);
         }
         System.out.println("Strategy Guide results in: " + totalPoints + " points");
+    }
+
+    public static void updatedStratGuide() {
+        int totalPoints = 0;
+        String line = "";
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input2.txt"));
+            char myMove;
+            line = reader.readLine();
+            while (line != null) {
+                myMove = needForResult(line.charAt(0), line.charAt(2));
+                totalPoints += pointCalc(didIWin(line.charAt(0), myMove), myMove);
+                line = reader.readLine();
+            }
+            //until end of file
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("Exception"+e);
+        }
+        System.out.println("Correct Strategy Guide results in: " + totalPoints + " points");
     }
 }

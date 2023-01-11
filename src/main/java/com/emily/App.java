@@ -13,5 +13,6 @@ public class App
         FileIn.elves();
         //day 2
         RPStourney.fileInPointsOut();
+        RPStourney.updatedStratGuide();
     }
 }
