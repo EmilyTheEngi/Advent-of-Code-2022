@@ -29,7 +29,13 @@ public class RPStourney {
     public static char needForResult(char opponent, char you) {
         //I find what move you need to make to to get your desired outcome
         if(you == 'Y') {//need to draw
-            return opponent;
+            if(opponent == 'A') {
+                return 'X';
+            } else if (opponent == 'B') {
+                return 'Y';
+            } else {
+                return 'Z';
+            }
         } else if (you == 'Z') {//need to win
             if (opponent == 'A') { //If opponent is Rock, Paper is needed to win
                 return 'Y';
@@ -71,7 +77,7 @@ public class RPStourney {
         }
         return sum;
     }
-
+/* Test code
     public static void exeStratGuide() {
         char[][] stratGuide = {
             {'A','Y'},
@@ -84,10 +90,12 @@ public class RPStourney {
         }
         System.out.println("Strategy Guide results in: " + totalPoints + " points");
     }
-
+ */
     public static void fileInPointsOut() {
         int totalPoints = 0;
         String line = "";
+        char myMove, opponentMove;
+
 
             try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input2.txt"));
@@ -97,7 +105,8 @@ public class RPStourney {
                 if (line == null) {
                     break;
                 }
-                totalPoints += pointCalc(didIWin(line.charAt(0), line.charAt(2)), line.charAt(2));
+                opponentMove = line.charAt(0);
+                totalPoints += pointCalc(didIWin(opponentMove, line.charAt(2)), line.charAt(2));
             }
             //until end of file
             reader.close();
@@ -113,14 +122,16 @@ public class RPStourney {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input2.txt"));
-            char myMove;
+            char yourMove, opponentMove;
             line = reader.readLine();
             while (line != null) {
+                opponentMove = line.charAt(0);
                 //first I calculate what move I need to make to be in line with the guide
-                myMove = needForResult(line.charAt(0), line.charAt(2));
+                yourMove = needForResult(opponentMove, line.charAt(2));
                 //then I calculate the amount of points I get for that match and add them to the total
-                totalPoints += pointCalc(didIWin(line.charAt(0), myMove), myMove);
+                totalPoints += pointCalc(didIWin(opponentMove, yourMove), yourMove);
                 //read nextLine
+                System.out.println("Opponent: " + opponentMove + " Your Move: " + yourMove);
                 line = reader.readLine();
             }
             //until end of file
