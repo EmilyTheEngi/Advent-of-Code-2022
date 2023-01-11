@@ -106,7 +106,8 @@ public class RPStourney {
                     break;
                 }
                 opponentMove = line.charAt(0);
-                totalPoints += pointCalc(didIWin(opponentMove, line.charAt(2)), line.charAt(2));
+                myMove = line.charAt(2);
+                totalPoints += pointCalc(didIWin(opponentMove, myMove), myMove);
             }
             //until end of file
             reader.close();
