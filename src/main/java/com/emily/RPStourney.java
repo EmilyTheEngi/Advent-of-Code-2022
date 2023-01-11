@@ -116,8 +116,11 @@ public class RPStourney {
             char myMove;
             line = reader.readLine();
             while (line != null) {
+                //first I calculate what move I need to make to be in line with the guide
                 myMove = needForResult(line.charAt(0), line.charAt(2));
+                //then I calculate the amount of points I get for that match and add them to the total
                 totalPoints += pointCalc(didIWin(line.charAt(0), myMove), myMove);
+                //read nextLine
                 line = reader.readLine();
             }
             //until end of file
