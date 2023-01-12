@@ -132,7 +132,6 @@ public class RPStourney {
                 //then I calculate the amount of points I get for that match and add them to the total
                 totalPoints += pointCalc(didIWin(opponentMove, yourMove), yourMove);
                 //read nextLine
-                System.out.println("Opponent: " + opponentMove + " Your Move: " + yourMove);
                 line = reader.readLine();
             }
             //until end of file

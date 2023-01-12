@@ -14,5 +14,7 @@ public class App
         //day 2
         RPStourney.fileInPointsOut();
         RPStourney.updatedStratGuide();
+        //day 3
+        sharedItemPriority.sumOfPriorities();
     }
 }
