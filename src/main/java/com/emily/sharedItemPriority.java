@@ -60,6 +60,7 @@ public class sharedItemPriority {
                     }
                 }
             }
+            reader.close();
         } catch (Exception e) {
             System.out.println("Exception" + e);
         }
