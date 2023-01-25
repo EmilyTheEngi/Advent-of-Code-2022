@@ -9,10 +9,7 @@ public class sharedItemPriority {
         String bag1, bag2 = "";
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input3.txt"));
-            // loop line by line, split each line in half, look for repeating values between
-            // halves and add their priorities
             while (true) {
-                // perline logic
                 try {
                     bag1 = reader.readLine();
                     bag2 = bag1.substring(bag1.length() / 2);
@@ -38,6 +35,35 @@ public class sharedItemPriority {
             System.out.println("Exception" + e);
         }
         System.out.println("The sum of the values of misplaced presents in Santa's sack are: " + sum);
+    }
+
+    public static void badgeIdentifier() {
+        int sum = 0;
+
+        String bag1, bag2, bag3 = "";
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input3.txt"));
+            while (true) {
+                bag1 = reader.readLine();
+
+                if (bag1 == null) {
+                    break;
+                }
+
+                bag2 = reader.readLine();
+                bag3 = reader.readLine();
+
+                for (int i = 0; i < bag1.length(); i++) {
+                    if (bag2.indexOf(bag1.charAt(i)) != -1 && bag3.indexOf(bag1.charAt(i)) != -1) {
+                        sum += asciiToElf(bag1.charAt(i));
+                        break;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Exception" + e);
+        }
+        System.out.println("The sum of the badge numbers is: " + sum);
     }
 
     /*
