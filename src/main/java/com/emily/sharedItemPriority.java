@@ -11,10 +11,6 @@ public class sharedItemPriority {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input3.txt"));
 
             while (true) {
-
-            // loop line by line, split each line in half, look for repeating values between
-            // halves and add their priorities
-            while (true) {
                 // perline logic
 
                 try {
