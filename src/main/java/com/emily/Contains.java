@@ -24,6 +24,7 @@ public class Contains {
     }
 
     public static void flags() {
+        int overlapping = 0;
 
     }
 }
