@@ -13,6 +13,8 @@ public class App {
         RPStourney.fileInPointsOut();
         RPStourney.updatedStratGuide();
         // day 3
+        sharedItemPriority.process();
         sharedItemPriority.badgeIdentifier();
+        // day 4
     }
 }

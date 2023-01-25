@@ -9,7 +9,14 @@ public class sharedItemPriority {
         String bag1, bag2 = "";
         try {
             BufferedReader reader = new BufferedReader(new FileReader("src/main/resources/input3.txt"));
+
             while (true) {
+
+            // loop line by line, split each line in half, look for repeating values between
+            // halves and add their priorities
+            while (true) {
+                // perline logic
+
                 try {
                     bag1 = reader.readLine();
                     bag2 = bag1.substring(bag1.length() / 2);
