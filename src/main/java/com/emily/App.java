@@ -17,5 +17,6 @@ public class App {
         sharedItemPriority.badgeIdentifier();
         // day 4
         Contains.cry();
+        Contains.flags();
     }
 }
